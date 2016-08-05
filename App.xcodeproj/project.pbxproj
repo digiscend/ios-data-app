@@ -14,6 +14,8 @@
 		1D288B7A1D549E2D005EBFA3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D288B791D549E2D005EBFA3 /* Images.xcassets */; };
 		1D288B7D1D549E2D005EBFA3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D288B7B1D549E2D005EBFA3 /* LaunchScreen.xib */; };
 		1D288B891D549E2D005EBFA3 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D288B881D549E2D005EBFA3 /* AppTests.swift */; };
+		1DD99CE11D54B4310023BD80 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD99CE01D54B4310023BD80 /* AddTaskViewController.swift */; };
+		1DD99CE31D54B5C30023BD80 /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD99CE21D54B5C30023BD80 /* DismissSegue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		1D288B821D549E2D005EBFA3 /* AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D288B871D549E2D005EBFA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D288B881D549E2D005EBFA3 /* AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTests.swift; sourceTree = "<group>"; };
+		1DD99CE01D54B4310023BD80 /* AddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
+		1DD99CE21D54B5C30023BD80 /* DismissSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,10 +83,12 @@
 		1D288B6D1D549E2D005EBFA3 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				1DD99CE01D54B4310023BD80 /* AddTaskViewController.swift */,
 				1D288B701D549E2D005EBFA3 /* AppDelegate.swift */,
 				1D288B721D549E2D005EBFA3 /* MasterViewController.swift */,
 				1D288B741D549E2D005EBFA3 /* DetailViewController.swift */,
 				1D288B761D549E2D005EBFA3 /* Main.storyboard */,
+				1DD99CE21D54B5C30023BD80 /* DismissSegue.swift */,
 				1D288B791D549E2D005EBFA3 /* Images.xcassets */,
 				1D288B7B1D549E2D005EBFA3 /* LaunchScreen.xib */,
 				1D288B6E1D549E2D005EBFA3 /* Supporting Files */,
@@ -216,6 +222,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D288B751D549E2D005EBFA3 /* DetailViewController.swift in Sources */,
+				1DD99CE31D54B5C30023BD80 /* DismissSegue.swift in Sources */,
+				1DD99CE11D54B4310023BD80 /* AddTaskViewController.swift in Sources */,
 				1D288B731D549E2D005EBFA3 /* MasterViewController.swift in Sources */,
 				1D288B711D549E2D005EBFA3 /* AppDelegate.swift in Sources */,
 			);
@@ -411,6 +419,7 @@
 				1D288B8E1D549E2D005EBFA3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1D288B8F1D549E2D005EBFA3 /* Build configuration list for PBXNativeTarget "AppTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +428,7 @@
 				1D288B911D549E2D005EBFA3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
