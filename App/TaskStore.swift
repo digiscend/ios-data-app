@@ -15,7 +15,7 @@ class TaskStore {
         }
         return Static.instance
     }
-    
+    /*
     var tasks: [Task] = []
     
     func add(task: Task) {
@@ -37,4 +37,5 @@ class TaskStore {
     func remove(index: Int) {
         tasks.removeAtIndex(index)
     }
+*/
 }
