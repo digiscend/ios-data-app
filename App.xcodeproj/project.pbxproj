@@ -16,6 +16,8 @@
 		1D288B891D549E2D005EBFA3 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D288B881D549E2D005EBFA3 /* AppTests.swift */; };
 		1DD99CE11D54B4310023BD80 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD99CE01D54B4310023BD80 /* AddTaskViewController.swift */; };
 		1DD99CE31D54B5C30023BD80 /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD99CE21D54B5C30023BD80 /* DismissSegue.swift */; };
+		1DE7CC7F1D56FE93002BD6AC /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE7CC7E1D56FE93002BD6AC /* Task.swift */; };
+		1DE7CC811D56FF13002BD6AC /* TaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE7CC801D56FF13002BD6AC /* TaskStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		1D288B881D549E2D005EBFA3 /* AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTests.swift; sourceTree = "<group>"; };
 		1DD99CE01D54B4310023BD80 /* AddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		1DD99CE21D54B5C30023BD80 /* DismissSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
+		1DE7CC7E1D56FE93002BD6AC /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		1DE7CC801D56FF13002BD6AC /* TaskStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,8 @@
 				1D288B721D549E2D005EBFA3 /* MasterViewController.swift */,
 				1D288B741D549E2D005EBFA3 /* DetailViewController.swift */,
 				1D288B761D549E2D005EBFA3 /* Main.storyboard */,
+				1DE7CC7E1D56FE93002BD6AC /* Task.swift */,
+				1DE7CC801D56FF13002BD6AC /* TaskStore.swift */,
 				1DD99CE21D54B5C30023BD80 /* DismissSegue.swift */,
 				1D288B791D549E2D005EBFA3 /* Images.xcassets */,
 				1D288B7B1D549E2D005EBFA3 /* LaunchScreen.xib */,
@@ -225,7 +231,9 @@
 				1DD99CE31D54B5C30023BD80 /* DismissSegue.swift in Sources */,
 				1DD99CE11D54B4310023BD80 /* AddTaskViewController.swift in Sources */,
 				1D288B731D549E2D005EBFA3 /* MasterViewController.swift in Sources */,
+				1DE7CC7F1D56FE93002BD6AC /* Task.swift in Sources */,
 				1D288B711D549E2D005EBFA3 /* AppDelegate.swift in Sources */,
+				1DE7CC811D56FF13002BD6AC /* TaskStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
