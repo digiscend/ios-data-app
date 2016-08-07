@@ -11,6 +11,7 @@ import UIKit
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
+    var projects:[Project] = [];
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,7 +30,10 @@ class MasterViewController: UITableViewController {
             let controllers = split.viewControllers
             self.detailViewController = controllers[controllers.count-1].topViewController as? DetailViewController
         }
+        
+        self.projects = Project.loadlistByFilters("a", filters2: "b", versionCode: 3)
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -39,6 +43,7 @@ class MasterViewController: UITableViewController {
     // MARK: - Segues
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        /*
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
                 let task = TaskStore.sharedInstance.get(indexPath.row)
@@ -49,6 +54,7 @@ class MasterViewController: UITableViewController {
 
             }
         }
+        */
     }
 
     // MARK: - Table View
@@ -58,15 +64,15 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return TaskStore.sharedInstance.count
+        return self.projects.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
 
-        let task = TaskStore.sharedInstance.get(indexPath.row)
-        cell.textLabel?.text = task.title
-        cell.detailTextLabel?.text = task.notes
+        let project = projects[indexPath.row]
+        cell.textLabel?.text = project.name
+        cell.detailTextLabel?.text = project.country
         return cell
     }
 
@@ -76,12 +82,12 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+        /*if editingStyle == .Delete {
             TaskStore.sharedInstance.remove(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-        }
+        }*/
     }
 
 

@@ -32,8 +32,8 @@ class AddTaskViewController: UIViewController {
     {
         if segue.identifier == "dismissAndSave"
         {
-            let task = Task(title: titleField.text, notes: notesField.text)
-            TaskStore.sharedInstance.add(task)
+            //let task = Task(title: titleField.text, notes: notesField.text)
+            //TaskStore.sharedInstance.add(task)
         }
     }
 }

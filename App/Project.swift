@@ -24,12 +24,19 @@ struct Project {
     
     var attrvalues: [AttrValue] = []
     
-    init(name: String, htmlid: String,country:String,intro:String,year:String,company:Company) {
+    init(name: String, htmlid: String,country:String,intro:String,year:String,company:Company)
+    {
         self.name = name
         self.htmlid = htmlid
         self.intro=intro
         self.year=year
         self.country=country
         self.company=nil;
+    }
+    
+    static func loadlistByFilters(filters:String, filters2:String, versionCode:Int) -> [Project]
+    {
+        let p = Project(name: "project1",htmlid: "html",country: "India",intro: "intro",year: "2010",company: Company(name: "comp1",htmlid: "html2",logosrc: "",logobitmap: ""))
+        return [p]
     }
 }

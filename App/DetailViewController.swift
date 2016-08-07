@@ -13,13 +13,13 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detailDescriptionLabel: UILabel!
     @IBOutlet weak var notesView: UITextView!
 
-    var detailItem: Task? {
+    var detailItem: Project? {
         didSet {
             // Update the view.
-            self.configureView()
+            // self.configureView()
         }
     }
-
+    /*
     func configureView() {
         // Update the user interface for the detail item.
         if let detail: Task = self.detailItem? {
@@ -41,7 +41,7 @@ class DetailViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
+    }*/
 
 
 }
