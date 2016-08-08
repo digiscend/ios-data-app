@@ -31,7 +31,7 @@ class MasterViewController: UITableViewController {
             self.detailViewController = controllers[controllers.count-1].topViewController as? DetailViewController
         }
         
-        self.projects = Project.loadlistByFilters("a", filters2: "b", versionCode: 3)
+        self.projects = Project.loadlistByFilters("", filters2: "", versionCode: 3)
     }
     
 

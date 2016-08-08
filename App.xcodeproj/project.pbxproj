@@ -20,6 +20,10 @@
 		1DE7CC811D56FF13002BD6AC /* TaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE7CC801D56FF13002BD6AC /* TaskStore.swift */; };
 		1DE7CC841D572F3C002BD6AC /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE7CC831D572F3C002BD6AC /* Company.swift */; };
 		1DE7CC861D572FD2002BD6AC /* AttrValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE7CC851D572FD2002BD6AC /* AttrValue.swift */; };
+		1DE7CC891D5742C5002BD6AC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DE7CC881D5742C5002BD6AC /* Localizable.strings */; };
+		1DE7CC8B1D5743A4002BD6AC /* API.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DE7CC8A1D5743A4002BD6AC /* API.strings */; };
+		1DE7CC8D1D5743EB002BD6AC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE7CC8C1D5743EB002BD6AC /* Constants.swift */; };
+		1DE7CC901D575D25002BD6AC /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE7CC8F1D575D25002BD6AC /* Reader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +54,10 @@
 		1DE7CC801D56FF13002BD6AC /* TaskStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskStore.swift; sourceTree = "<group>"; };
 		1DE7CC831D572F3C002BD6AC /* Company.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		1DE7CC851D572FD2002BD6AC /* AttrValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttrValue.swift; sourceTree = "<group>"; };
+		1DE7CC881D5742C5002BD6AC /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		1DE7CC8A1D5743A4002BD6AC /* API.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = API.strings; sourceTree = "<group>"; };
+		1DE7CC8C1D5743EB002BD6AC /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1DE7CC8F1D575D25002BD6AC /* Reader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +99,8 @@
 		1D288B6D1D549E2D005EBFA3 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				1DE7CC8E1D575CEE002BD6AC /* Task */,
+				1DE7CC871D5742A6002BD6AC /* Resources */,
 				1DE7CC821D572DEC002BD6AC /* models */,
 				1DD99CE01D54B4310023BD80 /* AddTaskViewController.swift */,
 				1D288B701D549E2D005EBFA3 /* AppDelegate.swift */,
@@ -137,8 +147,26 @@
 				1DE7CC7E1D56FE93002BD6AC /* Project.swift */,
 				1DE7CC831D572F3C002BD6AC /* Company.swift */,
 				1DE7CC851D572FD2002BD6AC /* AttrValue.swift */,
+				1DE7CC8C1D5743EB002BD6AC /* Constants.swift */,
 			);
 			name = models;
+			sourceTree = "<group>";
+		};
+		1DE7CC871D5742A6002BD6AC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1DE7CC881D5742C5002BD6AC /* Localizable.strings */,
+				1DE7CC8A1D5743A4002BD6AC /* API.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		1DE7CC8E1D575CEE002BD6AC /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				1DE7CC8F1D575D25002BD6AC /* Reader.swift */,
+			);
+			name = Task;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,8 +250,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D288B781D549E2D005EBFA3 /* Main.storyboard in Resources */,
+				1DE7CC891D5742C5002BD6AC /* Localizable.strings in Resources */,
 				1D288B7D1D549E2D005EBFA3 /* LaunchScreen.xib in Resources */,
 				1D288B7A1D549E2D005EBFA3 /* Images.xcassets in Resources */,
+				1DE7CC8B1D5743A4002BD6AC /* API.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +276,8 @@
 				1DD99CE31D54B5C30023BD80 /* DismissSegue.swift in Sources */,
 				1DD99CE11D54B4310023BD80 /* AddTaskViewController.swift in Sources */,
 				1D288B731D549E2D005EBFA3 /* MasterViewController.swift in Sources */,
+				1DE7CC901D575D25002BD6AC /* Reader.swift in Sources */,
+				1DE7CC8D1D5743EB002BD6AC /* Constants.swift in Sources */,
 				1DE7CC7F1D56FE93002BD6AC /* Project.swift in Sources */,
 				1D288B711D549E2D005EBFA3 /* AppDelegate.swift in Sources */,
 				1DE7CC811D56FF13002BD6AC /* TaskStore.swift in Sources */,
