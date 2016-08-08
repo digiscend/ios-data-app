@@ -24,7 +24,7 @@ struct Project {
     
     var attrvalues: [AttrValue] = []
     
-    init(name: String, htmlid: String,country:String,intro:String,year:String,company:Company)
+    init(name: String, htmlid: String,country:String,intro:String,year:String,company:Company?)
     {
         self.name = name
         self.htmlid = htmlid
@@ -66,11 +66,31 @@ struct Project {
             if key3 == "projects"
             {
                 projects0 = obj.objectForKey(key3) as? NSArray
-                var pojecti:AnyObject
-                for let projecti in projects0
+                var s:Int? = projects0?.count
+                for index in 0...s!-1
                 {
-                    return [];
+                    var projecti:NSDictionary = projects0?.objectAtIndex(0) as NSDictionary
+                    let name:String = projecti.objectForKey("name") as NSString
+                    let intro:String = projecti.objectForKey("intro") as NSString
+                    let countryName:String = projecti.objectForKey("countryName") as NSString
+                    let statusslug:String = projecti.objectForKey("statusslug") as NSString
+                    let logo:String = projecti.objectForKey("logo") as NSString
+                    let htmlid:String = projecti.objectForKey("htmlid") as NSString
+                    var fees:String?;
+                    //if projecti.objectForKey("fees").isKindOfClass(NSString)
+                    //{
+                        fees = projecti.objectForKey("fees") as NSString
+                    //}
+                    let year:String = projecti.objectForKey("year") as NSString
+                    //let gallery:String = projecti.objectForKey("statusslug") as NSString
+                    //let minerals:String = projecti.objectForKey("statusslug") as NSString
+                    //let selectedCompany:String = projecti.objectForKey("statusslug") as NSString
+                    //let sector:String = projecti.objectForKey("statusslug") as NSString
+                    let statusname:String = projecti.objectForKey("statusname") as NSString
+                    projects.append(Project(name:name, htmlid: htmlid, country: countryName, intro: intro, year: year, company: nil))
+                    return []
                 }
+                return [];
                 //projects0 = obj[key3] as? NSDictionary;
             }
             print(key3)
