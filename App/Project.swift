@@ -10,19 +10,24 @@ import UIKit
 
 struct Project {
     
-    let htmlid:String
-    let name:String
+    var htmlid:String?
+    var name:String?
     
-    let country:String
-    let company:Company?
-    let intro:String
-    let year:String
+    var country:String?
+    var company:Company?
+    var intro:String?
+    var year:String?
     
-    let milestoneProjects: [Project] = []
+    var milestoneProjects: [Project] = []
     
     var majorProjects: [Project] = []
     
     var attrvalues: [AttrValue] = []
+    
+    init()
+    {
+        
+    }
     
     init(name: String, htmlid: String,country:String,intro:String,year:String,company:Company?)
     {
@@ -47,17 +52,30 @@ struct Project {
         //Log.v (Constants.LOG_PLURL, url);
         let jsonData:NSDictionary = Reader.execute ([url]);
         let projects:[Project] = parseJson (jsonData)
-        return []
+        return projects
     }
     
     /**
     * @see http://www.codeproject.com/Articles/267023/Send-and-receive-json-between-android-and-php
     * @param json
+    * @see http://roadfiresoftware.com/2015/10/how-to-parse-json-with-swift-2/
     * @return
     */
     static func parseJson(obj:NSDictionary) -> [Project]
     {
         var projects:[Project] = []
+        
+        
+        if let jprojects = obj["projects"] as? [[String: AnyObject]] {
+            for jproject in jprojects {
+                projects.append(parseJsonObject(jproject))
+            }
+        }
+        
+        return projects
+    }
+    
+        /*
         var projects0:NSArray?
         
         let enumerator = obj.keyEnumerator()
@@ -69,7 +87,13 @@ struct Project {
                 var s:Int? = projects0?.count
                 for index in 0...s!-1
                 {
+                    
                     var projecti:NSDictionary = projects0?.objectAtIndex(0) as NSDictionary
+                    for (key4,val4) in projecti
+                    {
+                        return [];
+                    }
+                    /*
                     let name:String = projecti.objectForKey("name") as NSString
                     let intro:String = projecti.objectForKey("intro") as NSString
                     let countryName:String = projecti.objectForKey("countryName") as NSString
@@ -88,6 +112,7 @@ struct Project {
                     //let sector:String = projecti.objectForKey("statusslug") as NSString
                     let statusname:String = projecti.objectForKey("statusname") as NSString
                     projects.append(Project(name:name, htmlid: htmlid, country: countryName, intro: intro, year: year, company: nil))
+*/
                     return []
                 }
                 return [];
@@ -122,7 +147,7 @@ struct Project {
             }
         }
         return []
-        /*
+        
         
     if(!obj.has ("projects"))
     return null;
@@ -144,6 +169,23 @@ struct Project {
     }
     return projects;
     
+    }*/
+        
+        
+    static func parseJsonObject(jproject:NSDictionary) -> Project
+    {
+        var obj:Project = Project()
+        if let name = jproject["name"] as? String {
+            obj.name = name
+        }
+        if let intro = jproject["intro"] as? String {
+            obj.intro = intro
+        }
+        if let countryName = jproject["countryName"] as? String {
+            obj.country = countryName
+        }
+        return obj
+
     }
     
     /**
@@ -151,7 +193,7 @@ struct Project {
     * @see http://www.codeproject.com/Articles/267023/Send-and-receive-json-between-android-and-php
     * @param json
     * @return
-    */
+    *
     public static Project parseJsonObject(JSONObject jProject)
     {
     Project obj = new Project ();
@@ -199,7 +241,7 @@ struct Project {
     {
     return null;
     }
-    return obj;*/
+    return obj;
     
-    }
+    }*/
 }
