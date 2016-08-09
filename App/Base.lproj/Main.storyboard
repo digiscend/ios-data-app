@@ -64,8 +64,8 @@
                 <splitViewController id="H1p-Uh-vWS" sceneMemberID="viewController">
                     <toolbarItems/>
                     <connections>
-                        <segue destination="RMx-3f-FxP" kind="relationship" relationship="masterViewController" id="BlO-5A-QYV"/>
                         <segue destination="vC3-pB-5Vb" kind="relationship" relationship="detailViewController" id="Tll-UG-LXB"/>
+                        <segue destination="Qgr-0G-uec" kind="relationship" relationship="masterViewController" id="ih9-th-qwm"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZU-Oi-B1e" sceneMemberID="firstResponder"/>
@@ -115,10 +115,10 @@
                             <outlet property="delegate" destination="7bK-jq-Zjz" id="RA6-mI-bju"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Tasks" id="Zdf-7t-Un8">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="BhH-qe-aSW">
+                    <navigationItem key="navigationItem" title="Projects" id="Zdf-7t-Un8">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="llk-4H-Zfp">
                             <connections>
-                                <segue destination="MkY-G8-b4b" kind="presentation" identifier="showAddTask" id="OnF-39-00H"/>
+                                <segue destination="Qgr-0G-uec" kind="custom" customClass="DismissSegue" id="DiM-RX-J2Q"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -204,8 +204,59 @@
             </objects>
             <point key="canvasLocation" x="1072" y="1080"/>
         </scene>
+        <!--Home View Controller-->
+        <scene sceneID="DMT-dg-t0i">
+            <objects>
+                <viewController id="Qgr-0G-uec" customClass="HomeViewController" customModule="App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EPK-SP-azN"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ac0-3c-rxi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6U1-yk-6H2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ovC-B5-9Ez">
+                                <rect key="frame" x="16" y="136" width="200" height="30"/>
+                                <state key="normal" title="Browse By Countries">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tgr-NQ-311">
+                                <rect key="frame" x="16" y="174" width="200" height="30"/>
+                                <state key="normal" title="Browse By Minerals">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZp-wd-hY4">
+                                <rect key="frame" x="16" y="212" width="200" height="30"/>
+                                <state key="normal" title="Browse By Stages">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="85h-WD-Qda">
+                                <rect key="frame" x="16" y="28" width="200" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1rT-FS-twD">
+                                <rect key="frame" x="16" y="98" width="200" height="30"/>
+                                <state key="normal" title="Top Projects">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="RMx-3f-FxP" kind="presentation" id="3vG-mx-JnP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VTd-x6-vTU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="DiM-RX-J2Q"/>
         <segue reference="tsl-Nk-0bq"/>
         <segue reference="6S0-TO-JiA"/>
     </inferredMetricsTieBreakers>
