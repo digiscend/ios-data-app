@@ -9,29 +9,29 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
-    @IBOutlet weak var detailDescriptionLabel: UILabel!
-    @IBOutlet weak var notesView: UITextView!
+    
+    @IBOutlet weak var nameLabel: UITextField!
+    @IBOutlet weak var introView: UITextView!
 
     var detailItem: Project? {
         didSet {
             // Update the view.
-            // self.configureView()
+            self.configureView()
         }
     }
-    /*
+    
     func configureView() {
         // Update the user interface for the detail item.
-        if let detail: Task = self.detailItem? {
-            if let label = self.detailDescriptionLabel {
-                label.text = detail.title
+        if let detail: Project = self.detailItem? {
+            if let label = self.nameLabel {
+                label.text = detail.name
             }
-            if let notes = self.notesView {
-                notes.text = detail.notes
+            if let notes = self.introView {
+                notes.text = detail.intro
             }
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -41,7 +41,7 @@ class DetailViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }*/
+    }
 
 
 }

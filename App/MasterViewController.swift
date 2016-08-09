@@ -41,24 +41,22 @@ class MasterViewController: UITableViewController {
     }
 
     // MARK: - Segues
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        /*
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
-                let task = TaskStore.sharedInstance.get(indexPath.row)
+                let pobj = self.projects[indexPath.row]
                 let controller = (segue.destinationViewController as UINavigationController).topViewController as DetailViewController
-                controller.detailItem = task
+                controller.detailItem = pobj
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
 
             }
         }
-        */
     }
-
+    
     // MARK: - Table View
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -68,11 +66,17 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+        let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
 
         let project = projects[indexPath.row]
-        cell.textLabel?.text = project.name
-        cell.detailTextLabel?.text = project.country
+        cell.textLabel?.text = project.name + ", " + project.country
+        
+        if let comp = project.company as Company? {
+            
+            cell.detailTextLabel?.text = comp.name
+            
+        }
+        
         return cell
     }
 

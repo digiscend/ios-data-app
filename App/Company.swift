@@ -10,18 +10,33 @@ import UIKit
 
 struct Company {
     
-    let htmlid:String
-    let name:String
+    var htmlid:String?
+    var name:String?
     
-    let logosrc:String
+    var logosrc:String?
     
-    let logobitmap:String
+    var logobitmap:String?
     
+    init()
+    {
+        
+    }
     
     init(name: String, htmlid: String,logosrc:String,logobitmap:String) {
         self.name = name
         self.htmlid = htmlid
         self.logobitmap=logobitmap
         self.logosrc=logosrc
+    }
+    
+    static func parseJsonObject(jcompany:NSDictionary) -> Company
+    {
+        var obj:Company = Company()
+        if let name = jcompany["name"] as? String {
+            obj.name = name
+        }
+        
+        return obj
+        
     }
 }
