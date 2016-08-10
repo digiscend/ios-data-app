@@ -221,6 +221,9 @@
                                 <state key="normal" title="Browse By Countries">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="7bK-jq-Zjz" kind="presentation" identifier="BrowseCountries" id="dIw-kY-uHZ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tgr-NQ-311">
                                 <rect key="frame" x="16" y="174" width="200" height="30"/>
@@ -244,7 +247,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="RMx-3f-FxP" kind="presentation" id="3vG-mx-JnP"/>
+                                    <segue destination="RMx-3f-FxP" kind="presentation" identifier="TopProjects" id="3vG-mx-JnP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -256,8 +259,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="dIw-kY-uHZ"/>
         <segue reference="DiM-RX-J2Q"/>
-        <segue reference="tsl-Nk-0bq"/>
         <segue reference="6S0-TO-JiA"/>
     </inferredMetricsTieBreakers>
 </document>

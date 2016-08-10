@@ -12,6 +12,13 @@ class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
     var projects:[Project] = [];
+    
+    var ExtraBrowseType: Project? {
+        didSet {
+            // Update the view.
+            self.configureView()
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

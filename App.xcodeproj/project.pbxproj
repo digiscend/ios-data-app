@@ -14,6 +14,7 @@
 		1D288B7A1D549E2D005EBFA3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D288B791D549E2D005EBFA3 /* Images.xcassets */; };
 		1D288B7D1D549E2D005EBFA3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D288B7B1D549E2D005EBFA3 /* LaunchScreen.xib */; };
 		1D288B891D549E2D005EBFA3 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D288B881D549E2D005EBFA3 /* AppTests.swift */; };
+		1D84D7651D5B8324009921AA /* ExtraHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D84D7641D5B8324009921AA /* ExtraHolder.swift */; };
 		1DD1EE3B1D5A219F004E8DA7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD1EE3A1D5A219F004E8DA7 /* HomeViewController.swift */; };
 		1DD99CE11D54B4310023BD80 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD99CE01D54B4310023BD80 /* AddTaskViewController.swift */; };
 		1DD99CE31D54B5C30023BD80 /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD99CE21D54B5C30023BD80 /* DismissSegue.swift */; };
@@ -49,6 +50,7 @@
 		1D288B821D549E2D005EBFA3 /* AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D288B871D549E2D005EBFA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D288B881D549E2D005EBFA3 /* AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTests.swift; sourceTree = "<group>"; };
+		1D84D7641D5B8324009921AA /* ExtraHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtraHolder.swift; sourceTree = "<group>"; };
 		1DD1EE3A1D5A219F004E8DA7 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1DD99CE01D54B4310023BD80 /* AddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		1DD99CE21D54B5C30023BD80 /* DismissSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 		1DE7CC821D572DEC002BD6AC /* models */ = {
 			isa = PBXGroup;
 			children = (
+				1D84D7641D5B8324009921AA /* ExtraHolder.swift */,
 				1DE7CC7E1D56FE93002BD6AC /* Project.swift */,
 				1DE7CC831D572F3C002BD6AC /* Company.swift */,
 				1DE7CC851D572FD2002BD6AC /* AttrValue.swift */,
@@ -279,6 +282,7 @@
 				1DD99CE31D54B5C30023BD80 /* DismissSegue.swift in Sources */,
 				1DD99CE11D54B4310023BD80 /* AddTaskViewController.swift in Sources */,
 				1D288B731D549E2D005EBFA3 /* MasterViewController.swift in Sources */,
+				1D84D7651D5B8324009921AA /* ExtraHolder.swift in Sources */,
 				1DE7CC901D575D25002BD6AC /* Reader.swift in Sources */,
 				1DE7CC8D1D5743EB002BD6AC /* Constants.swift in Sources */,
 				1DE7CC7F1D56FE93002BD6AC /* Project.swift in Sources */,
