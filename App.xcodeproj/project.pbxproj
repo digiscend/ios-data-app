@@ -229,6 +229,7 @@
 				TargetAttributes = {
 					1D288B6A1D549E2D005EBFA3 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = UB37XZ4XZM;
 					};
 					1D288B811D549E2D005EBFA3 = {
 						CreatedOnToolsVersion = 6.2;
@@ -421,6 +422,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.digiscend.data.$(PRODUCT_NAME:rfc1034identifier)";
@@ -432,6 +434,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.digiscend.data.$(PRODUCT_NAME:rfc1034identifier)";
