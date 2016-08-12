@@ -22,7 +22,7 @@ class DetailViewController: UIViewController {
     
     func configureView() {
         // Update the user interface for the detail item.
-        if let detail: Project = self.detailItem? {
+        if let detail: Project = self.detailItem {
             if let label = self.nameLabel {
                 label.text = detail.name
             }

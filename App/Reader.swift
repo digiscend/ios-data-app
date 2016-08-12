@@ -9,7 +9,7 @@ import UIKit
 
 struct Reader
 {
-    static func execute(url1:[String]) -> NSDictionary
+    static func execute(url1:[String]) -> NSDictionary?
     {
         var jsonResult: NSDictionary!
         
@@ -17,18 +17,24 @@ struct Reader
         {
             let urlPath: String = url1[index]
             
-            var url: NSURL = NSURL(string: urlPath)!
-            var request1: NSMutableURLRequest = NSMutableURLRequest(URL: url)
+            let url: NSURL = NSURL(string: urlPath)!
+            let request1: NSMutableURLRequest = NSMutableURLRequest(URL: url)
             
             request1.HTTPMethod = "GET"
             request1.timeoutInterval = 60
-            let queue:NSOperationQueue = NSOperationQueue()
-            var response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
-            var dataVal: NSData =  NSURLConnection.sendSynchronousRequest(request1, returningResponse: response, error:nil)!
-            var err: NSError?
-            println(response)
-            jsonResult = NSJSONSerialization.JSONObjectWithData(dataVal, options: NSJSONReadingOptions.MutableContainers, error: &err) as? NSDictionary
-            println("Synchronous\(jsonResult)")
+            let response: AutoreleasingUnsafeMutablePointer<NSURLResponse?>=nil
+            let dataVal: NSData =  try! NSURLConnection.sendSynchronousRequest(request1, returningResponse: response)
+            print(response)
+            do
+            {
+                jsonResult = try NSJSONSerialization.JSONObjectWithData(dataVal, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary
+            }
+            catch
+            {
+                print("json error: \(error)")
+                return nil
+            }
+            print("Synchronous\(jsonResult)")
         }
         return jsonResult
     }

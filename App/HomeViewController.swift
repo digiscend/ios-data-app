@@ -27,18 +27,23 @@ class HomeViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let controller = (segue.destinationViewController as! UINavigationController).topViewController as! MasterViewController
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue.identifier == Constants.ID_BUTTON_COUNTRIES {
-            if let indexPath = self.tableView.indexPathForSelectedRow() {
-                let pobj = self.projects[indexPath.row]
-                let controller = (segue.destinationViewController as UINavigationController).topViewController as DetailViewController
-                controller.detailItem = pobj
-                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
-                controller.navigationItem.leftItemsSupplementBackButton = true
-                
-            }
+        switch(segue.identifier)
+        {
+        case Constants.ID_BUTTON_COUNTRIES?:
+            controller.extraBrowseType = ExtraHolder(baseTypeP: Constants.baseView_COUNTRY)
+        case Constants.ID_BUTTON_MINERALS?:
+            controller.extraBrowseType = ExtraHolder(baseTypeP:Constants.baseView_MINERAL)
+        case Constants.ID_BUTTON_STAGES?:
+            controller.extraBrowseType = ExtraHolder(baseTypeP:Constants.baseView_STAGE)
+        default:
+            controller.extraBrowseType = ExtraHolder(baseTypeP:Constants.baseView_PROJECTS)
         }
+
+        controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+        controller.navigationItem.leftItemsSupplementBackButton = true
     }
 
 

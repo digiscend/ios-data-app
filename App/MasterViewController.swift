@@ -11,13 +11,34 @@ import UIKit
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
-    var projects:[Project] = [];
-    
-    var ExtraBrowseType: Project? {
+    var projects:[Project] = []
+    var filters:[BrowseFilter] = []
+    var extraBrowseType: ExtraHolder! {
         didSet {
             // Update the view.
             self.configureView()
         }
+    }
+    
+    /**
+     * Has to prepare the tableview with either project list or filter list depending on the extraBrowseType
+     */
+    func configureView() {
+        // Update the user interface for the detail item.
+        if let baseType = self.extraBrowseType?.baseType
+        {
+            switch(baseType)
+            {
+                case Constants.baseView_PROJECTS:
+                    self.projects = Project.loadlistByFilters("", filters2: "", versionCode: 3)
+                default:
+                    //if let filterInfoStrings:[String]  = (self.extraBrowseType?.getFilterInfoStrings ())
+                    //{
+                        self.filters = BrowseFilter.loadlistByFilters (self.extraBrowseType)
+                    //}
+            }
+        }
+
     }
 
     override func awakeFromNib() {
@@ -35,10 +56,10 @@ class MasterViewController: UITableViewController {
 
         if let split = self.splitViewController {
             let controllers = split.viewControllers
-            self.detailViewController = controllers[controllers.count-1].topViewController as? DetailViewController
+            self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
+            //self.detailViewController = controllers[controllers.count-1].topViewController as? DetailViewController
         }
         
-        self.projects = Project.loadlistByFilters("", filters2: "", versionCode: 3)
     }
     
 
@@ -51,13 +72,36 @@ class MasterViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         if segue.identifier == "showDetail" {
-            if let indexPath = self.tableView.indexPathForSelectedRow() {
-                let pobj = self.projects[indexPath.row]
-                let controller = (segue.destinationViewController as UINavigationController).topViewController as DetailViewController
-                controller.detailItem = pobj
-                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
-                controller.navigationItem.leftItemsSupplementBackButton = true
-
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                
+                if self.extraBrowseType.baseType == Constants.baseView_PROJECTS
+                {
+                    //then we prepare detail view for project detail page
+                    let pobj = self.projects[indexPath.row]
+                    let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+                    controller.detailItem = pobj
+                    controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+                    controller.navigationItem.leftItemsSupplementBackButton = true
+                }
+                else
+                {
+                    //otherwise we prepare the table view again
+                    //with projects in the list
+                    
+                    //BrowserFilter val= (BrowserFilter) parent.getAdapter().getItem(position);
+                    let fobj = self.filters[indexPath.row]
+                    //ExtraHolder browsetype_for_mines = browsetype.clone ();
+                    let controller = (segue.destinationViewController as! UINavigationController).topViewController as! MasterViewController
+                    if let browsetype_for_mines:ExtraHolder = self.extraBrowseType?.copy() as? ExtraHolder
+                    {
+                        browsetype_for_mines.addFilter(fobj);
+                        controller.extraBrowseType = browsetype_for_mines
+                    }
+                    //intent.putExtra(BrowseActivity.EXTRA_PLBROWSETYPE, browsetype_for_mines);
+                    controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+                    controller.navigationItem.leftItemsSupplementBackButton = true
+                    //startActivity(intent);
+                }
             }
         }
     }
@@ -81,7 +125,6 @@ class MasterViewController: UITableViewController {
         if let comp = project.company as Company? {
             
             cell.detailTextLabel?.text = comp.name
-            
         }
         
         return cell

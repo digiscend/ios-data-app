@@ -54,9 +54,12 @@ struct Project {
         
         url += "&v=\(versionCode)"
         //Log.v (Constants.LOG_PLURL, url);
-        let jsonData:NSDictionary = Reader.execute ([url]);
-        let projects:[Project] = parseJson (jsonData)
-        return projects
+        if let jsonData:NSDictionary = Reader.execute ([url])
+        {
+            let projects:[Project] = parseJson (jsonData)
+            return projects
+        }
+        return []
     }
     
     /**

@@ -14,6 +14,7 @@
 		1D288B7A1D549E2D005EBFA3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D288B791D549E2D005EBFA3 /* Images.xcassets */; };
 		1D288B7D1D549E2D005EBFA3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D288B7B1D549E2D005EBFA3 /* LaunchScreen.xib */; };
 		1D288B891D549E2D005EBFA3 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D288B881D549E2D005EBFA3 /* AppTests.swift */; };
+		1D5BE88B1D5C5D30009DF32F /* BrowseFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5BE88A1D5C5D30009DF32F /* BrowseFilter.swift */; };
 		1D84D7651D5B8324009921AA /* ExtraHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D84D7641D5B8324009921AA /* ExtraHolder.swift */; };
 		1DD1EE3B1D5A219F004E8DA7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD1EE3A1D5A219F004E8DA7 /* HomeViewController.swift */; };
 		1DD99CE11D54B4310023BD80 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD99CE01D54B4310023BD80 /* AddTaskViewController.swift */; };
@@ -50,6 +51,7 @@
 		1D288B821D549E2D005EBFA3 /* AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D288B871D549E2D005EBFA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D288B881D549E2D005EBFA3 /* AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTests.swift; sourceTree = "<group>"; };
+		1D5BE88A1D5C5D30009DF32F /* BrowseFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseFilter.swift; sourceTree = "<group>"; };
 		1D84D7641D5B8324009921AA /* ExtraHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtraHolder.swift; sourceTree = "<group>"; };
 		1DD1EE3A1D5A219F004E8DA7 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1DD99CE01D54B4310023BD80 /* AddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				1DE7CC831D572F3C002BD6AC /* Company.swift */,
 				1DE7CC851D572FD2002BD6AC /* AttrValue.swift */,
 				1DE7CC8C1D5743EB002BD6AC /* Constants.swift */,
+				1D5BE88A1D5C5D30009DF32F /* BrowseFilter.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -219,7 +222,9 @@
 		1D288B631D549E2D005EBFA3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastSwiftMigration = 0730;
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = Digiscend;
 				TargetAttributes = {
 					1D288B6A1D549E2D005EBFA3 = {
@@ -290,6 +295,7 @@
 				1DE7CC811D56FF13002BD6AC /* TaskStore.swift in Sources */,
 				1DE7CC841D572F3C002BD6AC /* Company.swift in Sources */,
 				1DD1EE3B1D5A219F004E8DA7 /* HomeViewController.swift in Sources */,
+				1D5BE88B1D5C5D30009DF32F /* BrowseFilter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +357,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -416,6 +423,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.digiscend.data.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -426,6 +434,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.digiscend.data.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -444,6 +453,7 @@
 				);
 				INFOPLIST_FILE = AppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.digiscend.data.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/App.app/App";
 			};
@@ -459,6 +469,7 @@
 				);
 				INFOPLIST_FILE = AppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.digiscend.data.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/App.app/App";
 			};

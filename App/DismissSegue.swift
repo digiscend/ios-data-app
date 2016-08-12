@@ -11,7 +11,7 @@ import UIKit
 @objc(DismissSegue) class DismissSegue: UIStoryboardSegue {
 //class DismissSegue: UIStoryboardSegue {
     override func perform() {
-        if let controller = sourceViewController.presentingViewController? {
+        if let controller = sourceViewController.presentingViewController {
             controller.dismissViewControllerAnimated(true, completion: nil)
         }
     }
