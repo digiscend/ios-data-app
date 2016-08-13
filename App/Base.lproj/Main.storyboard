@@ -90,7 +90,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="Arm-wq-HPj" detailTextLabel="RZU-6F-Lrp" style="IBUITableViewCellStyleSubtitle" id="WCw-Qf-5nD">
-                                <rect key="frame" x="0.0" y="22" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="86" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -235,7 +235,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="7bK-jq-Zjz" kind="presentation" identifier="BrowseCountries" id="dIw-kY-uHZ"/>
+                                    <segue destination="RMx-3f-FxP" kind="presentation" identifier="BrowseCountries" id="C8d-um-e3z"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tgr-NQ-311">
@@ -243,12 +243,18 @@
                                 <state key="normal" title="Browse By Minerals">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="RMx-3f-FxP" kind="presentation" identifier="BrowseMinerals" id="NMR-UY-g6W"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZp-wd-hY4">
                                 <rect key="frame" x="16" y="248" width="564" height="30"/>
                                 <state key="normal" title="Browse By Stages">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="RMx-3f-FxP" kind="presentation" identifier="BrowseStages" id="b58-0d-Xwu"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1rT-FS-twD">
                                 <rect key="frame" x="16" y="134" width="564" height="30"/>
@@ -274,12 +280,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VTd-x6-vTU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="452" y="261"/>
+            <point key="canvasLocation" x="62" y="441"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dIw-kY-uHZ"/>
-        <segue reference="DiM-RX-J2Q"/>
         <segue reference="6S0-TO-JiA"/>
+        <segue reference="tsl-Nk-0bq"/>
+        <segue reference="b58-0d-Xwu"/>
+        <segue reference="DiM-RX-J2Q"/>
     </inferredMetricsTieBreakers>
 </document>

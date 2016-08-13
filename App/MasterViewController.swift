@@ -113,18 +113,40 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.projects.count
+        
+        // Update the user interface for the detail item.
+        if let baseType = self.extraBrowseType?.baseType
+        {
+            switch(baseType)
+            {
+            case Constants.baseView_PROJECTS:
+                return self.projects.count
+            default:
+                return self.filters.count
+            }
+        }
+        return 0        
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
-
-        let project = projects[indexPath.row]
-        cell.textLabel?.text = project.name + ", " + project.country
         
-        if let comp = project.company as Company? {
-            
-            cell.detailTextLabel?.text = comp.name
+        // Update the user interface for the detail item.
+        if let baseType = self.extraBrowseType?.baseType
+        {
+            switch(baseType)
+            {
+            case Constants.baseView_PROJECTS:
+                let project = projects[indexPath.row]
+                cell.textLabel?.text = project.name + ", " + project.country
+                if let comp = project.company as Company? {
+                    cell.detailTextLabel?.text = comp.name
+                }
+            default:
+                
+                let filter = filters[indexPath.row]
+                cell.textLabel?.text = filter.name
+            }
         }
         
         return cell
