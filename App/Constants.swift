@@ -25,4 +25,7 @@ struct Constants {
     static let baseView_PROJECTS = 4;
     static let baseView_PROJECT = 5;
     
+    static let segue_showProjectDetail = "showProjectDetail"
+    static let segue_showFilterProjects = "showFilterProjects"
+    
 }

@@ -73,9 +73,24 @@ class BrowseFilter: NSObject {
             + "?lang=" + NSLocalizedString("api_q_lang", comment: "")
             //TODO:+ "&v=" + versionCode;
         //Log.v (Constants.LOG_BWURL, url);
-        if let jsonData:NSDictionary = Reader.execute ([url])
+        
+        
+
+        
+        if let rawData:NSData = Reader.execute ([url])
         {
-            let filtervals:[BrowseFilter] = BrowseFilter.parseJson (jsonData,browsetype: browsetype)
+            var jsonResult:NSDictionary?
+            do
+            {
+                jsonResult = try NSJSONSerialization.JSONObjectWithData(rawData, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary
+            }
+            catch
+            {
+                print("json error: \(error)")
+                return []
+            }
+            
+            let filtervals:[BrowseFilter] = BrowseFilter.parseJson (jsonResult!,browsetype: browsetype)
             return filtervals
         }
         return []

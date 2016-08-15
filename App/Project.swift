@@ -47,19 +47,53 @@ struct Project {
     
     static func loadlistByFilters(filters:String, filters2:String, versionCode:Int) -> [Project]
     {
-        var url:String = Constants.APISERVER
-            + Constants.API_PROJECTLIST
-            + filters + "?lang="
-            + NSLocalizedString("api_q_lang", comment: "")
+        let projects:[Project];
+        var filefound:Bool = true;
+        let CACHEFILENAME:String = "projects.\(versionCode).\(filters2)";
+
+        let paths = NSSearchPathForDirectoriesInDomains(.CachesDirectory, .UserDomainMask, true)[0] as String
+        let CACHEFILEPATH = NSURL(fileURLWithPath: paths).URLByAppendingPathComponent(CACHEFILENAME)
+        var rawData:NSData?
         
-        url += "&v=\(versionCode)"
-        //Log.v (Constants.LOG_PLURL, url);
-        if let jsonData:NSDictionary = Reader.execute ([url])
-        {
-            let projects:[Project] = parseJson (jsonData)
-            return projects
+        do {
+            rawData = try NSData(contentsOfURL: CACHEFILEPATH,options:NSDataReadingOptions.DataReadingMappedIfSafe)
         }
-        return []
+        catch {
+            filefound = false
+        }
+        
+        if !filefound
+        {
+            
+            var url:String = Constants.APISERVER
+                + Constants.API_PROJECTLIST
+                + filters + "?lang="
+                + NSLocalizedString("api_q_lang", comment: "")
+            
+            url += "&v=\(versionCode)"
+            //Log.v (Constants.LOG_PLURL, url);
+            rawData = Reader.execute ([url])
+        }
+        
+        let jsonResult:NSDictionary?
+        do
+        {
+            jsonResult = try NSJSONSerialization.JSONObjectWithData(rawData!, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary
+        }
+        catch
+        {
+            print("json error: \(error)")
+            return []
+        }
+        
+        projects = parseJson (jsonResult!)
+        if projects.count>0
+        {
+            let CACHEFILEPATH = NSURL(fileURLWithPath: paths).URLByAppendingPathComponent(CACHEFILENAME)
+            //@see https://www.hackingwithswift.com/example-code/strings/writetofile-how-to-save-a-string-to-a-file-on-disk
+            rawData!.writeToURL(CACHEFILEPATH, atomically: true)
+        }
+        return projects
     }
     
     /**
