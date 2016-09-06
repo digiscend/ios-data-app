@@ -128,6 +128,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showProjectDetail" id="7Te-dt-GF7"/>
+                        <segue destination="RMx-3f-FxP" kind="show" identifier="showFilterProjects" id="9yd-D2-I6j"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
@@ -281,8 +285,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="b58-0d-Xwu"/>
-        <segue reference="DiM-RX-J2Q"/>
+        <segue reference="7Te-dt-GF7"/>
         <segue reference="tsl-Nk-0bq"/>
+        <segue reference="9yd-D2-I6j"/>
+        <segue reference="DiM-RX-J2Q"/>
     </inferredMetricsTieBreakers>
 </document>

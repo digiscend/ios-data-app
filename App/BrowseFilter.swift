@@ -14,6 +14,7 @@ class BrowseFilter: NSObject {
     var htmlid:String = "";
     var lastbrowsetype:ExtraHolder? = nil;
     
+    /// Parses the JSON string to produce output array
     static func parseJson(obj:NSDictionary,browsetype:ExtraHolder) -> [BrowseFilter]
     {
         let key:String;
@@ -33,13 +34,13 @@ class BrowseFilter: NSObject {
         
         if let jfilters = obj[key] as? [[String: AnyObject]] {
             for jfilter in jfilters {
-                filtervals.append(parseJsonObject(jfilter))
+                filtervals.append(parseJsonObject(jfilter,browsetype: browsetype))
             }
         }
         return filtervals
     }    
-    
-    static func parseJsonObject(jfilter:NSDictionary) -> BrowseFilter
+    /// Parses single element converting to proper BrowseFilter object
+    static func parseJsonObject(jfilter:NSDictionary,browsetype:ExtraHolder) -> BrowseFilter
     {
         let obj:BrowseFilter = BrowseFilter.init()
         if let name = jfilter["name"] as? String {
@@ -50,10 +51,12 @@ class BrowseFilter: NSObject {
             obj.htmlid = htmlid
         }
         
+        obj.lastbrowsetype = browsetype
         return obj
         
     }
     
+    /// Does API call, parses the JSON and returns ready to use objects
     static func loadlistByFilters(browsetype:ExtraHolder) -> [BrowseFilter]
     {
         let filters:String = browsetype.getFilters ();
@@ -73,9 +76,6 @@ class BrowseFilter: NSObject {
             + "?lang=" + NSLocalizedString("api_q_lang", comment: "")
             //TODO:+ "&v=" + versionCode;
         //Log.v (Constants.LOG_BWURL, url);
-        
-        
-
         
         if let rawData:NSData = Reader.execute ([url])
         {

@@ -28,7 +28,8 @@ class MasterViewController: UITableViewController {
         // Update the user interface for the detail item.
         if self.extraBrowseType?.baseType == Constants.baseView_PROJECTS
         {
-           self.projects = Project.loadlistByFilters("", filters2: "", versionCode: 3)
+            let lfilters:String = self.extraBrowseType.getFilters()
+            self.projects = Project.loadlistByFilters(lfilters, filters2: self.extraBrowseType.filterCacheId, versionCode: 3)
             self.detailSegue = Constants.segue_showProjectDetail
         }
         else
@@ -76,7 +77,7 @@ class MasterViewController: UITableViewController {
     {
         if let indexPath = self.tableView.indexPathForSelectedRow {
             
-            if segue.identifier == "showDetail" {
+            if segue.identifier ==  Constants.segue_showProjectDetail {
                 if self.extraBrowseType.baseType == Constants.baseView_PROJECTS
                 {
                     //then we prepare detail view for project detail page
